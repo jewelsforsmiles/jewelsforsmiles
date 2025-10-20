@@ -205,14 +205,16 @@
     <input type="text" name="stad" required placeholder="Plaats">
   </label>
 </div>
+<button type="submit" onclick="return checkProductAantal()">Bestel — ik betaal via Tikkie</button>
 
-  <button type="submit">Bestel — ik betaal via Tikkie</button>
+
 </form>
 
 <script>
   const producten = document.querySelectorAll('.product');
   const totaalDiv = document.getElementById('totaal');
-
+  
+const verzendRadios = document.querySelectorAll('input[name="verzendoptie"]');
   function updateTotaal() {
     let totaal = 0;
     let totaalAantal = 0;
@@ -247,10 +249,12 @@
 
   // reset alles bij laden
   window.addEventListener('DOMContentLoaded', () => {
-    producten.forEach(p=>p.querySelector('input[type="number"]').value=0);
-    verzendRadios.forEach(r=>r.checked=false);
-    totaalDiv.textContent = "Totaal: €0,00";
-  });
+  producten.forEach(p => p.querySelector('input[type="number"]').value = 0);
+  // Zet Brievenbus als standaard
+  verzendRadios.forEach(r => r.checked = r.value.includes("Brievenbus"));
+  totaalDiv.textContent = "Totaal: €0,00";
+});
+
 </script>
 <script>
   const aantalInputs = document.querySelectorAll('.product input[type="number"]');
@@ -316,7 +320,5 @@ function checkProductAantal() {
   return true; // laat submit doorgaan
 }
 </script>
-
-
 </body>
 </html>
