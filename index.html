@@ -265,7 +265,14 @@
   // Initial call om meteen juiste state te zetten
   updateVerzendopties();
 </script>
-
+</script>
+window.addEventListener('DOMContentLoaded', () => {
+  producten.forEach(p=>p.querySelector('input[type="number"]').value=0);
+  verzendRadios.forEach(r=>r.disabled = false);
+  // Zet standaard Brievenbus aan
+  document.querySelector('input[name="verzendoptie"][value="Brievenbus €2,62"]').checked = true;
+  totaalDiv.textContent = "Totaal: €0,00";
+});
 <script>
   const evilEyeSelect = document.getElementById('evil-eye-select');
   const evilEyeImg = document.getElementById('evil-eye-main');
@@ -286,14 +293,7 @@
     const kleur = bloemenSelect.value.toLowerCase();
     bloemenImg.src = `images/oorbellen-${kleur}.jpg`;
   });
-</script>
-window.addEventListener('DOMContentLoaded', () => {
-  producten.forEach(p=>p.querySelector('input[type="number"]').value=0);
-  verzendRadios.forEach(r=>r.disabled = false);
-  // Zet standaard Brievenbus aan
-  document.querySelector('input[name="verzendoptie"][value="Brievenbus €2,62"]').checked = true;
-  totaalDiv.textContent = "Totaal: €0,00";
-});
+
 
 </body>
 </html>
