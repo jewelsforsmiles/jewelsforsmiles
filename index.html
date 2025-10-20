@@ -66,6 +66,14 @@
   <input type="hidden" name="_next" value="bedankt.html">
   <input type="hidden" name="totaalbedrag" id="totaalbedrag" value="0">
 
+  <div class="categorie-buttons" style="text-align:center; margin-bottom:20px;">
+  <button type="button" data-cat="alles">Alles</button>
+  <button type="button" data-cat="oorbellen">Oorbellen</button>
+  <button type="button" data-cat="armbanden">Armbanden</button>
+  <button type="button" data-cat="kettingen">Kettingen</button>
+</div>
+
+  
   <div class="product-container">
     <!-- Producten zoals eerder -->
     <div class="product" data-cat="kettingen" data-prijs="4" data-voorraad="2">
@@ -300,6 +308,24 @@
   function redirectBedankt() {
     window.location.href = "bedankt.html";
   }
+</script>
+  
+<script>
+const categorieKnoppen = document.querySelectorAll('.categorie-buttons button');
+const productContainer = document.querySelector('.product-container');
+
+categorieKnoppen.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.getAttribute('data-cat');
+    producten.forEach(p => {
+      if(cat === 'alles' || p.dataset.cat === cat){
+        p.style.display = 'block';
+      } else {
+        p.style.display = 'none';
+      }
+    });
+  });
+});
 </script>
 
 </body>
