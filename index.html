@@ -47,12 +47,9 @@
 <body>
 <!-- Header met logo en contact -->
 <header style="display:flex; align-items:center; justify-content:space-between; padding:10px 20px; background:#ffd7fe; border-radius:10px; margin-bottom:20px;">
-  <!-- Logo links -->
   <div>
     <img src="images/smileylogo.png" alt="Jewels for Smiles Logo" style="height:50px;">
   </div>
-
-  <!-- Contact / Klantenservice rechts -->
   <div style="text-align:right; font-size:14px; color:#333;">
     <strong>Contact / Klantenservice</strong><br>
     <a href="mailto:jewelsforsmiles@gmail.com" style="color:#ff5757; text-decoration:none;">jewelsforsmiles@gmail.com</a><br>
@@ -61,13 +58,16 @@
 </header>
 
 <h1>Jewels for Smiles</h1>
+<p style="text-align:center; font-size:14px; color:#555; margin-top:-10px;">
+  Zodra je besteld hebt, ontvang je een Tikkie op je opgegeven e-mailadres. Na betaling wordt je bestelling verzonden en ontvang je later Track & Trace.
+</p>
 
 <form id="bestelformulier" action="https://formspree.io/f/mdkwvkpd" method="POST">
   <input type="hidden" name="_next" value="bedankt.html">
+  <input type="hidden" name="totaalbedrag" id="totaalbedrag" value="0">
 
   <div class="product-container">
-
-    <!-- 1: Sterren armband -->
+    <!-- Producten zoals eerder -->
     <div class="product" data-cat="kettingen" data-prijs="4" data-voorraad="2">
       <img src="images/sterren-armband.jpg" alt="Sterren Armband">
       <h3>Sterren armband</h3>
@@ -77,7 +77,6 @@
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="sterren_ketting_aantal"></label>
     </div>
 
-    <!-- 2: Parel ketting -->
     <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="2">
       <img src="images/parel-charms-ketting.jpg" alt="Parel Ketting">
       <h3>Parel Ketting</h3>
@@ -87,7 +86,6 @@
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="parel_ketting_aantal"></label>
     </div>
 
-    <!-- 3: Blauwe armbanden set -->
     <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
       <img src="images/armband-set-blauw.jpg" alt="Blauwe Armbanden Set">
       <h3>Blauwe Armbanden Set</h3>
@@ -97,7 +95,6 @@
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="blauwe_armband_aantal"></label>
     </div>
 
-    <!-- 4: Roze/groene armbanden set -->
     <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
       <img src="images/armband-set-rozegroen.jpg" alt="Roze/Groene Armbanden Set">
       <h3>Roze/Groene Armbanden Set</h3>
@@ -107,52 +104,39 @@
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="roze_groene_armband_aantal"></label>
     </div>
 
-    <!-- 5: Evil Eye Armband -->
-<div class="product" data-cat="armbanden" data-prijs="3.5" data-voorraad="2">
-  <!-- Hoofdafbeelding met ID -->
-  <img id="evil-eye-main" src="images/evil-eye-blauw.jpg" alt="Evil Eye Armband" width="200">
+    <div class="product" data-cat="armbanden" data-prijs="3.5" data-voorraad="2">
+      <img id="evil-eye-main" src="images/evil-eye-blauw.jpg" alt="Evil Eye Armband" width="200">
+      <h3>Evil Eye Armband</h3>
+      <p>Handgemaakt, stainless steel – unieke Evil Eye charms</p>
+      <div class="prijs">€3,50</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="evil_eye_armband_aantal"></label>
+      <label>Kleur:
+        <select id="evil-eye-select" name="evil_eye_armband_kleur">
+          <option value="blauw">Blauw</option>
+          <option value="groen">Groen</option>
+          <option value="geel">Geel</option>
+          <option value="rood">Rood</option>
+          <option value="zwart">Zwart</option>
+        </select>
+      </label>
+    </div>
 
-  <h3>Evil Eye Armband</h3>
-  <p>Handgemaakt, stainless steel – unieke Evil Eye charms</p>
-  <div class="prijs">€3,50</div>
-  <div class="voorraad">Voorraad: 2</div>
+    <div class="product" data-cat="oorbellen" data-prijs="3.5" data-voorraad="2">
+      <img id="bloemen-main" src="images/oorbellen-hotpink.jpg" alt="Bloemen Oorbellen" width="200">
+      <h3>Bloemen Oorbellen</h3>
+      <p>Handgemaakt, stainless steel – hot pink of soft pink kralen</p>
+      <div class="prijs">€3,50</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="bloemen_oorbellen_aantal"></label>
+      <label>Kleur:
+        <select id="bloemen-select" name="bloemen_oorbellen_kleur">
+          <option value="hotpink">Hot Pink</option>
+          <option value="softpink">Soft Pink</option>
+        </select>
+      </label>
+    </div>
 
-  <label>Aantal: <input type="number" min="0" max="2" value="0" name="evil_eye_armband_aantal"></label>
-
-  <label>Kleur:
-    <select id="evil-eye-select" name="evil_eye_armband_kleur">
-      <option value="blauw">Blauw</option>
-      <option value="groen">Groen</option>
-      <option value="geel">Geel</option>
-      <option value="rood">Rood</option>
-      <option value="zwart">Zwart</option>
-    </select>
-  </label>
-</div>
-
-
-   <!-- 6: Hot Pink / Soft Pink kralen Bloemen Oorbellen -->
-<div class="product" data-cat="oorbellen" data-prijs="3.5" data-voorraad="2">
-  <!-- Hoofdafbeelding met ID -->
-  <img id="bloemen-main" src="images/oorbellen-hotpink.jpg" alt="Bloemen Oorbellen" width="200">
-
-  <h3>Bloemen Oorbellen</h3>
-  <p>Handgemaakt, stainless steel – hot pink of soft pink kralen</p>
-  <div class="prijs">€3,50</div>
-  <div class="voorraad">Voorraad: 2</div>
-
-  <label>Aantal: <input type="number" min="0" max="2" value="0" name="bloemen_oorbellen_aantal"></label>
-
-  <label>Kleur:
-    <select id="bloemen-select" name="bloemen_oorbellen_kleur">
-      <option value="hotpink">Hot Pink</option>
-      <option value="softpink">Soft Pink</option>
-    </select>
-  </label>
-</div>
-
-
-    <!-- 7: Kralen cirkel oorbellen -->
     <div class="product" data-cat="oorbellen" data-prijs="5" data-voorraad="2">
       <img src="images/kralen-cirkel-oorbellen.jpg" alt="Kralen Cirkel Oorbellen">
       <h3>Kralen Cirkel Oorbellen</h3>
@@ -162,7 +146,6 @@
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="kralen_cirkel_oorbellen_aantal"></label>
     </div>
 
-    <!-- 8: Charms ketting -->
     <div class="product" data-cat="kettingen" data-prijs="7" data-voorraad="2">
       <img src="images/charms-ketting.jpg" alt="Charms Ketting">
       <h3>Charms Ketting</h3>
@@ -172,51 +155,46 @@
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="charms_ketting_aantal"></label>
     </div>
 
-  </div> <!-- einde product-container -->
+  </div>
 
-  <!-- Verzendopties -->
- <div class="verzendopties">
-  <label>
-    <input type="radio" name="verzendoptie" value="Brievenbus €2,62" checked required>
-    Brievenbus zonder Track & Trace (€2,62)
-  </label>
-  <label>
-    <input type="radio" name="verzendoptie" value="Track & Trace €4,25" required>
-    Track & Trace (€4,25)
-  </label>
-</div>
+  <div class="verzendopties">
+    <label>
+      <input type="radio" name="verzendoptie" value="Brievenbus €2,62" checked required>
+      Brievenbus zonder Track & Trace (€2,62)
+    </label>
+    <label>
+      <input type="radio" name="verzendoptie" value="Track & Trace €4,25" required>
+      Track & Trace (€4,25)
+    </label>
+  </div>
 
   <div id="totaal">Totaal: €0,00</div>
-<!-- Klantgegevens -->
-<div class="klantgegevens">
-  <label>Naam:
-    <input type="text" name="naam" required placeholder="Je naam">
-  </label>
-  <label>E-mail:
-    <input type="email" name="email" required placeholder="je@email.com">
-  </label>
-  <label>Adres:
-    <input type="text" name="adres" required placeholder="Straat + huisnummer">
-  </label>
-  <label>Postcode:
-    <input type="text" name="postcode" required placeholder="1234 AB">
-  </label>
-  <label>Stad:
-    <input type="text" name="stad" required placeholder="Plaats">
-  </label>
-</div>
-<button type="submit">Bestel — ik betaal via Tikkie</button>
 
-
-
-
+  <div class="klantgegevens">
+    <label>Naam:
+      <input type="text" name="naam" required placeholder="Je naam">
+    </label>
+    <label>E-mail:
+      <input type="email" name="email" required placeholder="je@email.com">
+    </label>
+    <label>Adres:
+      <input type="text" name="adres" required placeholder="Straat + huisnummer">
+    </label>
+    <label>Postcode:
+      <input type="text" name="postcode" required placeholder="1234 AB">
+    </label>
+    <label>Stad:
+      <input type="text" name="stad" required placeholder="Plaats">
+    </label>
+  </div>
+  <button type="submit">Bestel — ik betaal via Tikkie</button>
 </form>
 
 <script>
   const producten = document.querySelectorAll('.product');
   const totaalDiv = document.getElementById('totaal');
-  
-const verzendRadios = document.querySelectorAll('input[name="verzendoptie"]');
+  const verzendRadios = document.querySelectorAll('input[name="verzendoptie"]');
+
   function updateTotaal() {
     let totaal = 0;
     let totaalAantal = 0;
@@ -228,115 +206,100 @@ const verzendRadios = document.querySelectorAll('input[name="verzendoptie"]');
       totaalAantal += aantal;
     });
 
-    // automatische verzendkosten
     let verzend = 0;
     if (totaalAantal > 0) {
       if(totaalAantal >= 6) {
         verzend = 4.25;
-        verzendRadios.forEach(r=>{if(r.value=="brievenbus") r.checked=false; r.disabled=true;});
-        verzendRadios.forEach(r=>{if(r.value=="tracktrace") r.checked=true; r.disabled=false;});
+        verzendRadios.forEach(r=>{if(r.value.includes("Brievenbus")) r.checked=false; r.disabled=true;});
+        verzendRadios.forEach(r=>{if(r.value.includes("Track & Trace")) r.checked=true; r.disabled=false;});
       } else {
         verzendRadios.forEach(r=>{r.disabled=false;});
         if(document.querySelector('input[name="verzendoptie"]:checked')) {
-          verzend = document.querySelector('input[name="verzendoptie"]:checked').value=="brievenbus"?2.62:4.25;
+          verzend = document.querySelector('input[name="verzendoptie"]:checked').value.includes("Brievenbus") ? 2.62 : 4.25;
         }
       }
     }
 
     totaalDiv.textContent = `Totaal: €${(totaal + verzend).toFixed(2).replace('.',',')}`;
+    document.getElementById('totaalbedrag').value = (totaal + verzend).toFixed(2);
   }
 
   producten.forEach(p => p.querySelector('input[type="number"]').addEventListener('input', updateTotaal));
   verzendRadios.forEach(r => r.addEventListener('change', updateTotaal));
 
-  // reset alles bij laden
   window.addEventListener('DOMContentLoaded', () => {
-  producten.forEach(p => p.querySelector('input[type="number"]').value = 0);
-  // Zet Brievenbus als standaard
-  verzendRadios.forEach(r => r.checked = r.value.includes("Brievenbus"));
-  totaalDiv.textContent = "Totaal: €0,00";
-});
-
+    producten.forEach(p => p.querySelector('input[type="number"]').value = 0);
+    verzendRadios.forEach(r => r.checked = r.value.includes("Brievenbus"));
+    totaalDiv.textContent = "Totaal: €0,00";
+  });
 </script>
+
 <script>
   const aantalInputs = document.querySelectorAll('.product input[type="number"]');
   const brievenbus = document.querySelector('input[value^="Brievenbus"]');
   const trackTrace = document.querySelector('input[value^="Track & Trace"]');
 
   function updateVerzendopties() {
-    // Bereken totaal aantal items
     let totaalAantal = 0;
-    aantalInputs.forEach(input => {
-      totaalAantal += parseInt(input.value) || 0;
-    });
+    aantalInputs.forEach(input => { totaalAantal += parseInt(input.value) || 0; });
 
-    // Als ≥6, disable Brievenbus en selecteer Track & Trace
     if (totaalAantal >= 6) {
       brievenbus.disabled = true;
       trackTrace.checked = true;
     } else {
       brievenbus.disabled = false;
-      // Houd huidige selectie behouden (optioneel)
     }
   }
 
-  // Trigger bij wijziging aantal
-  aantalInputs.forEach(input => {
-    input.addEventListener('input', updateVerzendopties);
-  });
-
-  // Initial call om meteen juiste state te zetten
+  aantalInputs.forEach(input => { input.addEventListener('input', updateVerzendopties); });
   updateVerzendopties();
 </script>
+
 <script>
-document.getElementById("bestelformulier").addEventListener("submit", function(e){
-  const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
-  const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
-  if(totaal === 0){
-    e.preventDefault();
-    alert("Kies minstens 1 product om te bestellen.");
-  }
-});
+  document.getElementById("bestelformulier").addEventListener("submit", function(e){
+    const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
+    const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
+    if(totaal === 0){
+      e.preventDefault();
+      alert("Kies minstens 1 product om te bestellen.");
+    }
+  });
 </script>
 
 <script>
   const evilEyeSelect = document.getElementById('evil-eye-select');
   const evilEyeImg = document.getElementById('evil-eye-main');
-
-  // Verander afbeelding bij kleurselectie
   evilEyeSelect.addEventListener('change', () => {
     const kleur = evilEyeSelect.value.toLowerCase();
     evilEyeImg.src = `images/evil-eye-${kleur}.jpg`;
   });
 </script>
 
-  <script>
+<script>
   const bloemenSelect = document.getElementById('bloemen-select');
   const bloemenImg = document.getElementById('bloemen-main');
-
-  // Verander afbeelding bij kleurselectie
   bloemenSelect.addEventListener('change', () => {
     const kleur = bloemenSelect.value.toLowerCase();
     bloemenImg.src = `images/oorbellen-${kleur}.jpg`;
   });
-
-<script>
-function checkProductAantal() {
-  const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
-  const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
-  if(totaal === 0) {
-    alert("Kies minstens 1 product om te bestellen.");
-    return false; // stopt submit
-  }
-  return true; // laat submit doorgaan
-}
 </script>
 
-  <script>
-function redirectBedankt() {
-  // Hier kan je eventueel een check doen op aantal producten, etc.
-  window.location.href = "bedankt.html";
-}
+<script>
+  function checkProductAantal() {
+    const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
+    const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
+    if(totaal === 0) {
+      alert("Kies minstens 1 product om te bestellen.");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+<script>
+  function redirectBedankt() {
+    window.location.href = "bedankt.html";
+  }
 </script>
 
 </body>
