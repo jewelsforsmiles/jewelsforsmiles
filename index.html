@@ -205,7 +205,8 @@
     <input type="text" name="stad" required placeholder="Plaats">
   </label>
 </div>
-<button type="submit" onclick="return checkProductAantal()">Bestel — ik betaal via Tikkie</button>
+<button type="button" onclick="redirectBedankt()">Bestel — ik betaal via Tikkie</button>
+
 
 
 </form>
@@ -319,5 +320,13 @@ function checkProductAantal() {
   return true; // laat submit doorgaan
 }
 </script>
+
+  <script>
+function redirectBedankt() {
+  // Hier kan je eventueel een check doen op aantal producten, etc.
+  window.location.href = "bedankt.html";
+}
+</script>
+
 </body>
 </html>
