@@ -1,28 +1,216 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bestel hier</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bestel je producten</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #ffd7fe; color: #333;}
+    h1 { color:#ff5757; text-align:center; }
+    .categories { text-align:center; margin-bottom:20px; }
+    .category-btn { margin:0 5px; padding:5px 10px; cursor:pointer; border:none; border-radius:5px; background:#ff5757; color:white; }
+    .category-btn.active { background:#e04d4d; }
+    .products { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .product { background:#fff; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); padding:15px; width:200px; text-align:center; position:relative; }
+    .product img { width:100%; border-radius:5px; }
+    .product h2 { font-size:16px; margin:10px 0 5px; }
+    .product p { font-size:14px; margin:5px 0; }
+    .product input.aantal { width:60px; margin-top:5px; text-align:center; }
+    .out-of-stock { color:red; font-weight:bold; margin-top:5px; }
+    #shipping { margin:20px 0; text-align:center; }
+    #totaal { font-weight:bold; margin-top:10px; text-align:center; background:#e8f5e9; padding:10px; border:1px solid #c8e6c9; border-radius:5px; }
+    button { background:#ff5757; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-top:15px; }
+    button:hover { background:#e04d4d; }
+    footer { margin-top:30px; text-align:center; font-size:12px; color:#888; }
+    @media(max-width:600px){.products{flex-direction:column;align-items:center;}}
+  </style>
 </head>
 <body>
-<h1>Bestel je product</h1>
-<p>Vul je gegevens in en wij sturen je een Tikkie.</p>
+
+<h1>Bestel je producten</h1>
+
+<div class="categories">
+  <button class="category-btn active" data-category="all">Alles</button>
+  <button class="category-btn" data-category="earrings">Oorbellen</button>
+  <button class="category-btn" data-category="bracelets">Armbanden</button>
+  <button class="category-btn" data-category="necklaces">Kettingen</button>
+</div>
 
 <form action="https://formspree.io/f/mdkwvkpd" method="POST">
-  <label>Naam: <input type="text" name="naam" required></label><br><br>
-  <label>Email: <input type="email" name="email" required></label><br><br>
-  <label>Product:
-    <select name="product">
-      <option>Product A</option>
-      <option>Product B</option>
-    </select>
-  </label><br><br>
-  <label>Aantal: <input type="number" name="aantal" value="1" min="1"></label><br><br>
-  <label>Adres: <textarea name="adres"></textarea></label><br><br>
-  <input type="hidden" name="_subject" value="Nieuwe bestelling via website">
+  <input type="hidden" name="_next" value="https://jouwgebruikersnaam.github.io/mijn-bestel-site/bedankt.html">
+
+  <div class="products">
+    <!-- Product 1 -->
+    <div class="product" data-category="necklaces" data-price="4.00" data-stock="2">
+      <img src="sterren-ketting.jpg" alt="Sterren ketting">
+      <h2>Sterren ketting met touw</h2>
+      <p>RVS / stainless steel</p>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+    <!-- Product 2 -->
+    <div class="product" data-category="necklaces" data-price="5.00" data-stock="2">
+      <img src="parel-ketting-blauw.jpg" alt="Parel ketting">
+      <h2>Parel ketting met blauwe charms</h2>
+      <p>RVS / stainless steel</p>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+    <!-- Product 3 -->
+    <div class="product" data-category="bracelets" data-price="7.00" data-stock="2">
+      <img src="blauwe-armbanden-set.jpg" alt="Blauwe armbanden">
+      <h2>Blauwe armbanden set</h2>
+      <p>Handgemaakt, RVS / stainless steel</p>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+    <!-- Product 4 -->
+    <div class="product" data-category="bracelets" data-price="7.00" data-stock="2">
+      <img src="roze-groene-armbanden.jpg" alt="Roze/groene armbanden">
+      <h2>Roze/groene armbanden set</h2>
+      <p>Handgemaakt, RVS / stainless steel</p>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+    <!-- Product 5 -->
+    <div class="product" data-category="necklaces" data-price="3.50" data-stock="2">
+      <img src="evil-eye-blauw.jpg" alt="Evil eye ketting">
+      <h2>Evil eye ketting</h2>
+      <p>Kleuren: blauw, groen, geel, rood, zwart | RVS</p>
+      <select class="kleurkeuze">
+        <option value="Blauw">Blauw</option>
+        <option value="Groen">Groen</option>
+        <option value="Geel">Geel</option>
+        <option value="Rood">Rood</option>
+        <option value="Zwart">Zwart</option>
+      </select>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+    <!-- Product 6 -->
+    <div class="product" data-category="earrings" data-price="3.50" data-stock="2">
+      <img src="bloemen-oorbellen.jpg" alt="Bloemen oorbellen">
+      <h2>Hot pink / Soft pink kralen bloemen oorbellen</h2>
+      <p>Handgemaakt, RVS / stainless steel</p>
+      <select class="kleurkeuze">
+        <option value="Hot Pink">Hot Pink</option>
+        <option value="Soft Pink">Soft Pink</option>
+      </select>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+    <!-- Product 7 -->
+    <div class="product" data-category="earrings" data-price="5.00" data-stock="2">
+      <img src="kralen-cirkel.jpg" alt="Kralen cirkel oorbellen">
+      <h2>Kralen cirkel oorbellen</h2>
+      <p>Elke set uniek, RVS / stainless steel</p>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+    <!-- Product 8 -->
+    <div class="product" data-category="necklaces" data-price="7.00" data-stock="2">
+      <img src="charms-ketting.jpg" alt="Charms ketting">
+      <h2>Charms ketting</h2>
+      <p>Handgemaakt, RVS / stainless steel</p>
+      <input type="number" class="aantal" value="0" min="0" max="2">
+      <div class="out-of-stock" style="display:none;">Uitverkocht</div>
+    </div>
+  </div>
+
+  <div id="shipping">
+    <label><input type="radio" name="verzendoptie" value="Brievenbus (€2,62)" checked> Brievenbus (€2,62 t/m 5 items)</label><br>
+    <label><input type="radio" name="verzendoptie" value="Pakketpost Track & Trace (€4,25)"> Pakketpost Track & Trace (€4,25)</label>
+  </div>
+
+  <div id="totaal">Totaal: €0,00</div>
+
   <button type="submit">Bestel — ik betaal via Tikkie</button>
 </form>
+
+<footer>
+  <p>Contact: jewelsforsmiles@gmail.com | Instagram & TikTok: @jewelsforsmiles</p>
+</footer>
+
+<script>
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  const products = document.querySelectorAll('.product');
+  const totaalDiv = document.getElementById('totaal');
+  const shippingRadios = document.querySelectorAll('input[name="verzendoptie"]');
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.category;
+      products.forEach(p => {
+        if (cat==='all'||p.dataset.category===cat) p.style.display='block';
+        else p.style.display='none';
+      });
+      berekenTotaal();
+    });
+  });
+
+  function berekenTotaal() {
+    let totaal=0;
+    let totalItems=0;
+    products.forEach(p=>{
+      const stock = parseInt(p.dataset.stock);
+      const input = p.querySelector('.aantal');
+      const out = p.querySelector('.out-of-stock');
+
+      if(stock===0){ input.value=0; input.disabled=true; out.style.display='block'; out.textContent="Uitverkocht"; }
+      else{ input.disabled=false; out.style.display='none'; }
+
+      let aantal = parseInt(input.value)||0;
+      if(aantal>stock){ aantal=stock; input.value=aantal; out.textContent="Niet genoeg voorraad"; out.style.display='block'; }
+      totaal += parseFloat(p.dataset.price)*aantal;
+      totalItems += aantal;
+    });
+
+    let shippingCost=0;
+    if(totalItems>=6){
+      shippingRadios.forEach(r=>{ if(r.value.includes("Track")) r.checked=true; else r.disabled=true; });
+      shippingCost=4.25;
+    } else {
+      shippingRadios.forEach(r=>r.disabled=false);
+      shippingRadios.forEach(r=>{ if(r.checked) shippingCost=r.value.includes("Brievenbus")?2.62:4.25; });
+    }
+    totaal += shippingCost;
+    totaalDiv.textContent=`Totaal: €${totaal.toFixed(2).replace('.',',')}`;
+  }
+
+  products.forEach(p=>{
+    p.querySelector('.aantal').addEventListener('input',berekenTotaal);
+  });
+  shippingRadios.forEach(r=>r.addEventListener('change',berekenTotaal));
+  berekenTotaal();
+
+  const form = document.querySelector('form');
+  form.addEventListener('submit', ()=>{
+    products.forEach((p,i)=>{
+      if(p.style.display==='none') return;
+      const aantal=parseInt(p.querySelector('.aantal').value);
+      if(aantal>0){
+        const title = p.querySelector('h2').textContent;
+        const kleurSelect = p.querySelector('.kleurkeuze');
+        let kleurText = kleurSelect ? ` (${kleurSelect.value})` : '';
+        const input = document.createElement('input');
+        input.type='hidden';
+        input.name=`product${i+1}`;
+        input.value=`${title}${kleurText} x ${aantal}`;
+        form.appendChild(input);
+      }
+    });
+    const totaalInput = document.createElement('input');
+    totaalInput.type='hidden'; totaalInput.name='Totaalbedrag'; totaalInput.value=totaalDiv.textContent;
+    form.appendChild(totaalInput);
+
+    const verzendOptie = document.querySelector('input[name="verzendoptie"]:checked').value;
+    const verzendInput = document.createElement('input');
+    verzendInput.type='hidden'; verzendInput.name='Verzendoptie'; verzendInput.value=verzendOptie;
+    form.appendChild(verzendInput);
+  });
+</script>
 
 </body>
 </html>
