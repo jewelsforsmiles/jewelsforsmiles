@@ -151,10 +151,29 @@
   </div> <!-- einde product-container -->
 
   <!-- Verzendopties -->
-  <div class="verzendopties">
-    <label><input type="radio" name="verzendoptie" value="brievenbus"> Brievenbuspost zonder track&trace (€2,62)</label>
-    <label><input type="radio" name="verzendoptie" value="tracktrace"> Pakketpost met track&trace (€4,25)</label>
-  </div>
+ <div class="verzendopties">
+  <label>
+    <input type="radio" name="verzendoptie" value="Brievenbus €2,62" checked required>
+    Brievenbus (€2,62 t/m 5 items)
+  </label>
+  <label>
+    <input type="radio" name="verzendoptie" value="Track & Trace €4,25" required>
+    Track & Trace (€4,25 of ≥6 items verplicht)
+  </label>
+</div>
+  
+function updateVerzendopties(totaalAantal) {
+  const brievenbus = document.querySelector('input[value^="Brievenbus"]');
+  const trackTrace = document.querySelector('input[value^="Track & Trace"]');
+
+  if(totaalAantal >= 6){
+    brievenbus.disabled = true;        // niet meer selecteerbaar
+    trackTrace.checked = true;          // automatisch Track & Trace selecteren
+  } else {
+    brievenbus.disabled = false;
+  }
+}
+
 
   <div id="totaal">Totaal: €0,00</div>
 
