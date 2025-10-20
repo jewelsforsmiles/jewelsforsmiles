@@ -62,8 +62,8 @@
 
 <h1>Jewels for Smiles</h1>
 
-<form action="https://formspree.io/f/mdkwvkpd" method="POST">
-<input type="hidden" name="_next" value="https://jewelsforsmiles.github.io/jewelsforsmiles/bedankt.html">
+<form id="bestelformulier" action="https://formspree.io/f/mdkwvkpd" method="POST">
+  <input type="hidden" name="_next" value="bedankt.html">
 
   <div class="product-container">
 
@@ -205,7 +205,8 @@
     <input type="text" name="stad" required placeholder="Plaats">
   </label>
 </div>
-<button type="button" onclick="redirectBedankt()">Bestel — ik betaal via Tikkie</button>
+<button type="submit">Bestel — ik betaal via Tikkie</button>
+
 
 
 
@@ -286,6 +287,16 @@ const verzendRadios = document.querySelectorAll('input[name="verzendoptie"]');
 
   // Initial call om meteen juiste state te zetten
   updateVerzendopties();
+</script>
+<script>
+document.getElementById("bestelformulier").addEventListener("submit", function(e){
+  const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
+  const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
+  if(totaal === 0){
+    e.preventDefault();
+    alert("Kies minstens 1 product om te bestellen.");
+  }
+});
 </script>
 
 <script>
