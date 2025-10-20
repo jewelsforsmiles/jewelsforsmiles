@@ -65,7 +65,7 @@
 
     <!-- 2: Parel ketting -->
     <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="2">
-      <img src="images/ketting2.jpg" alt="Parel Ketting">
+      <img src="images/parel-charms-ketting.jpg" alt="Parel Ketting">
       <h3>Parel Ketting</h3>
       <p>Handgemaakt, stainless steel – blauwe ceramic & rvs charms</p>
       <div class="prijs">€5,00</div>
@@ -75,7 +75,7 @@
 
     <!-- 3: Blauwe armbanden set -->
     <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
-      <img src="images/armband1.jpg" alt="Blauwe Armbanden Set">
+      <img src="images/armband-set-blauw.jpg" alt="Blauwe Armbanden Set">
       <h3>Blauwe Armbanden Set</h3>
       <p>Handgemaakt, stainless steel – set van blauwe armbanden</p>
       <div class="prijs">€7,00</div>
@@ -85,7 +85,7 @@
 
     <!-- 4: Roze/groene armbanden set -->
     <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
-      <img src="images/armband2.jpg" alt="Roze/Groene Armbanden Set">
+      <img src="images/armband-set-rozegroen.jpg" alt="Roze/Groene Armbanden Set">
       <h3>Roze/Groene Armbanden Set</h3>
       <p>Handgemaakt, stainless steel – set in roze en groen</p>
       <div class="prijs">€7,00</div>
@@ -94,43 +94,53 @@
     </div>
 
     <!-- 5: Evil Eye Armband -->
-    <div class="product" data-cat="armbanden" data-prijs="3.5" data-voorraad="2">
-      <img src="images/evil-eye-armband.jpg" alt="Evil Eye Armband">
-      <h3>Evil Eye Armband</h3>
-      <p>Handgemaakt, stainless steel – unieke Evil Eye charms</p>
-      <div class="prijs">€3,50</div>
-      <div class="voorraad">Voorraad: 2</div>
-      <label>Aantal: <input type="number" min="0" max="2" value="0" name="evil_eye_armband_aantal"></label>
-      <label>Kleur:
-        <select name="evil_eye_armband_kleur">
-          <option value="blauw">Blauw</option>
-          <option value="groen">Groen</option>
-          <option value="geel">Geel</option>
-          <option value="rood">Rood</option>
-          <option value="zwart">Zwart</option>
-        </select>
-      </label>
-    </div>
+<div class="product" data-cat="armbanden" data-prijs="3.5" data-voorraad="2">
+  <!-- Hoofdafbeelding met ID -->
+  <img id="evil-eye-main" src="images/evil-eye-blauw.jpg" alt="Evil Eye Armband" width="200">
 
-    <!-- 6: Hot pink / soft pink kralen bloemen oorbellen -->
-    <div class="product" data-cat="oorbellen" data-prijs="3.5" data-voorraad="2">
-      <img src="images/oorbellen1.jpg" alt="Bloemen Oorbellen">
-      <h3>Bloemen Oorbellen</h3>
-      <p>Handgemaakt, stainless steel – hot pink of soft pink kralen</p>
-      <div class="prijs">€3,50</div>
-      <div class="voorraad">Voorraad: 2</div>
-      <label>Aantal: <input type="number" min="0" max="2" value="0" name="bloemen_oorbellen_aantal"></label>
-      <label>Kleur:
-        <select name="bloemen_oorbellen_kleur">
-          <option value="hotpink">Hot Pink</option>
-          <option value="softpink">Soft Pink</option>
-        </select>
-      </label>
-    </div>
+  <h3>Evil Eye Armband</h3>
+  <p>Handgemaakt, stainless steel – unieke Evil Eye charms</p>
+  <div class="prijs">€3,50</div>
+  <div class="voorraad">Voorraad: 2</div>
+
+  <label>Aantal: <input type="number" min="0" max="2" value="0" name="evil_eye_armband_aantal"></label>
+
+  <label>Kleur:
+    <select id="evil-eye-select" name="evil_eye_armband_kleur">
+      <option value="blauw">Blauw</option>
+      <option value="groen">Groen</option>
+      <option value="geel">Geel</option>
+      <option value="rood">Rood</option>
+      <option value="zwart">Zwart</option>
+    </select>
+  </label>
+</div>
+
+
+   <!-- 6: Hot Pink / Soft Pink kralen Bloemen Oorbellen -->
+<div class="product" data-cat="oorbellen" data-prijs="3.5" data-voorraad="2">
+  <!-- Hoofdafbeelding met ID -->
+  <img id="bloemen-main" src="images/oorbellen-hotpink.jpg" alt="Bloemen Oorbellen" width="200">
+
+  <h3>Bloemen Oorbellen</h3>
+  <p>Handgemaakt, stainless steel – hot pink of soft pink kralen</p>
+  <div class="prijs">€3,50</div>
+  <div class="voorraad">Voorraad: 2</div>
+
+  <label>Aantal: <input type="number" min="0" max="2" value="0" name="bloemen_oorbellen_aantal"></label>
+
+  <label>Kleur:
+    <select id="bloemen-select" name="bloemen_oorbellen_kleur">
+      <option value="hotpink">Hot Pink</option>
+      <option value="softpink">Soft Pink</option>
+    </select>
+  </label>
+</div>
+
 
     <!-- 7: Kralen cirkel oorbellen -->
     <div class="product" data-cat="oorbellen" data-prijs="5" data-voorraad="2">
-      <img src="images/oorbellen2.jpg" alt="Kralen Cirkel Oorbellen">
+      <img src="images/kralen-cirkle-oorbellen.jpg" alt="Kralen Cirkel Oorbellen">
       <h3>Kralen Cirkel Oorbellen</h3>
       <p>Handgemaakt, stainless steel – unieke sets, elk anders</p>
       <div class="prijs">€5,00</div>
@@ -140,7 +150,7 @@
 
     <!-- 8: Charms ketting -->
     <div class="product" data-cat="kettingen" data-prijs="7" data-voorraad="2">
-      <img src="images/charms_ketting.jpg" alt="Charms Ketting">
+      <img src="images/charms-ketting.jpg" alt="Charms Ketting">
       <h3>Charms Ketting</h3>
       <p>Handgemaakt, stainless steel – meerdere varianten mogelijk</p>
       <div class="prijs">€7,00</div>
@@ -241,6 +251,28 @@
   // Initial call om meteen juiste state te zetten
   updateVerzendopties();
 </script>
+<script>
+  const evilEyeSelect = document.getElementById('evil-eye-select');
+  const evilEyeImg = document.getElementById('evil-eye-main');
+
+  // Verander afbeelding bij kleurselectie
+  evilEyeSelect.addEventListener('change', () => {
+    const kleur = evilEyeSelect.value.toLowerCase();
+    evilEyeImg.src = `images/evil-eye-${kleur}.jpg`;
+  });
+</script>
+
+  <script>
+  const bloemenSelect = document.getElementById('bloemen-select');
+  const bloemenImg = document.getElementById('bloemen-main');
+
+  // Verander afbeelding bij kleurselectie
+  bloemenSelect.addEventListener('change', () => {
+    const kleur = bloemenSelect.value.toLowerCase();
+    bloemenImg.src = `images/oorbellen-${kleur}.jpg`;
+  });
+</script>
+
 
 </body>
 </html>
