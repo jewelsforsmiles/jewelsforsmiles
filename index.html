@@ -304,6 +304,19 @@
     const kleur = bloemenSelect.value.toLowerCase();
     bloemenImg.src = `images/oorbellen-${kleur}.jpg`;
   });
+<button type="submit" onclick="return checkProductAantal()">Bestel — ik betaal via Tikkie</button>
+
+<script>
+function checkProductAantal() {
+  const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
+  const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
+  if(totaal === 0) {
+    alert("Kies minstens 1 product om te bestellen.");
+    return false; // stopt submit
+  }
+  return true; // laat submit doorgaan
+}
+</script>
 
 
 </body>
