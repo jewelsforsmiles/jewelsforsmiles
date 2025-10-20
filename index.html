@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bestel hier</title>
+</head>
+<body>
+<h1>Bestel je product</h1>
+<p>Vul je gegevens in en wij sturen je een Tikkie.</p>
+
+<form action="https://formspree.io/f/mdkwvkpd" method="POST">
+  <label>Naam: <input type="text" name="naam" required></label><br><br>
+  <label>Email: <input type="email" name="email" required></label><br><br>
+  <label>Product:
+    <select name="product">
+      <option>Product A</option>
+      <option>Product B</option>
+    </select>
+  </label><br><br>
+  <label>Aantal: <input type="number" name="aantal" value="1" min="1"></label><br><br>
+  <label>Adres: <textarea name="adres"></textarea></label><br><br>
+  <input type="hidden" name="_subject" value="Nieuwe bestelling via website">
+  <button type="submit">Bestel — ik betaal via Tikkie</button>
+</form>
+
+</body>
+</html>
