@@ -1,138 +1,210 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bestel je sieraden</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jewels for Smiles - Bestelpagina</title>
   <style>
-    body { font-family: Arial, sans-serif; margin:40px; background-color: #f9f9f9; color:#333; }
-    h1 { color:#ff5757; }
-    form { background:#fff; padding:20px; border-radius:10px; max-width:500px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-    label { display:block; margin-top:10px; }
-    input, textarea, select, button { width:100%; padding:8px; margin-top:4px; font-size:14px; border:1px solid #ccc; border-radius:5px; }
-    button { background:#ff5757; color:white; border:none; margin-top:15px; cursor:pointer; font-size:16px; padding:10px; }
-    button:hover { background:#e04848; }
-    #totaal { background:#ffd7fe; border:1px solid #ff5757; padding:10px; margin-top:15px; font-weight:bold; text-align:center;}
-    footer { margin-top:30px; font-size:12px; color:#888; }
-    option.uitverkocht { color:#888; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #ffd7fe;
+      color: #333;
+    }
+    h1 { color: #ff5757; text-align:center; }
+    .product-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content:center; }
+    .product {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      width: 220px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .product img { width: 100%; border-radius: 10px; }
+    .product h3 { margin: 10px 0 5px 0; font-size:16px; color:#ff5757; }
+    .product p { font-size:14px; margin:5px 0; }
+    .prijs { font-weight:bold; margin:5px 0; }
+    .voorraad { font-size:12px; color:green; }
+    label { display:block; margin-top:5px; }
+    input[type="number"], select { width:100%; padding:5px; margin-top:2px; border-radius:5px; border:1px solid #ccc; }
+    #totaal { text-align:center; margin-top:20px; font-size:18px; font-weight:bold; background:#e8f5e9; padding:10px; border:1px solid #c8e6c9; border-radius:5px; }
+    .verzendopties { margin-top:20px; text-align:center; }
+    .verzendopties label { display:block; margin:5px 0; }
+    button {
+      background-color:#ff5757;
+      color:white;
+      border:none;
+      padding:10px;
+      width:100%;
+      border-radius:5px;
+      margin-top:15px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    button:hover { background-color:#e04848; }
   </style>
 </head>
 <body>
-  <h1>Bestel je sieraden</h1>
-  <p>Vul je gegevens in. Je ontvangt een Tikkie zodra we je bestelling hebben gecontroleerd.</p>
 
-  <form action="https://formspree.io/f/mdkwvkpd" method="POST">
-    <input type="hidden" name="_next" value="https://jewelsforsmiles.github.io/jewelsforsmiles/bedankt.html">
+<h1>Jewels for Smiles - Bestel hier</h1>
 
-    <label>Naam:
-      <input type="text" name="naam" required>
-    </label>
+<form action="https://formspree.io/f/mdkwvkpd" method="POST">
+  <input type="hidden" name="_next" value="https://jewelsforsmiles.github.io/mijn-bestel-site/bedankt.html">
 
-    <label>E-mail:
-      <input type="email" name="email" required>
-    </label>
+  <div class="product-container">
 
-    <label>Telefoonnummer:
-      <input type="tel" name="telefoon" required>
-    </label>
+    <!-- 1: Sterren ketting -->
+    <div class="product" data-cat="kettingen" data-prijs="4" data-voorraad="2">
+      <img src="images/ketting1.jpg" alt="Sterren Ketting">
+      <h3>Sterren Ketting</h3>
+      <p>Handgemaakt, stainless steel – touw ketting</p>
+      <div class="prijs">€4,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="sterren_ketting_aantal"></label>
+    </div>
 
-    <label>Adres:
-      <textarea name="adres" rows="3" placeholder="Straat, Postcode, Plaats"></textarea>
-    </label>
+    <!-- 2: Parel ketting -->
+    <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="2">
+      <img src="images/ketting2.jpg" alt="Parel Ketting">
+      <h3>Parel Ketting</h3>
+      <p>Handgemaakt, stainless steel – blauwe ceramic & rvs charms</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="parel_ketting_aantal"></label>
+    </div>
 
-    <label>Product:
-      <select id="product" name="product" required>
-        <option value="">— Kies een product —</option>
-        <option value="Sterren ketting" data-prijs="4" data-voorraad="2">Sterren ketting (€4)</option>
-        <option value="Parel ketting" data-prijs="5" data-voorraad="2">Parel ketting (€5)</option>
-        <option value="Blauwe armbanden set" data-prijs="7" data-voorraad="2">Blauwe armbanden set (€7)</option>
-        <option value="Roze/groene armbanden set" data-prijs="7" data-voorraad="2">Roze/groene armbanden set (€7)</option>
-        <option value="Evil eye armband" data-prijs="3.5" data-voorraad="2">Evil eye armband (€3,50)</option>
-        <option value="Hot/soft pink kralen bloemen oorbellen" data-prijs="3.5" data-voorraad="2">Kralen bloemen oorbellen (€3,50)</option>
-        <option value="Kralen cirkel oorbellen" data-prijs="5" data-voorraad="2">Kralen cirkel oorbellen (€5)</option>
-        <option value="Charms ketting" data-prijs="7" data-voorraad="2">Charms ketting (€7)</option>
-      </select>
-    </label>
+    <!-- 3: Blauwe armbanden set -->
+    <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
+      <img src="images/armband1.jpg" alt="Blauwe Armbanden Set">
+      <h3>Blauwe Armbanden Set</h3>
+      <p>Handgemaakt, stainless steel – set van blauwe armbanden</p>
+      <div class="prijs">€7,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="blauwe_armband_aantal"></label>
+    </div>
 
-    <label>Aantal:
-      <input type="number" id="aantal" name="aantal" value="1" min="1" required>
-    </label>
+    <!-- 4: Roze/groene armbanden set -->
+    <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
+      <img src="images/armband2.jpg" alt="Roze/Groene Armbanden Set">
+      <h3>Roze/Groene Armbanden Set</h3>
+      <p>Handgemaakt, stainless steel – set in roze en groen</p>
+      <div class="prijs">€7,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="roze_groene_armband_aantal"></label>
+    </div>
 
-    <label>Kleur (indien van toepassing):
-      <select id="kleur" name="kleur">
-        <option value="">Geen / standaard</option>
-        <option value="Blauw">Blauw</option>
-        <option value="Groen">Groen</option>
-        <option value="Rood">Rood</option>
-        <option value="Geel">Geel</option>
-        <option value="Hot pink">Hot pink</option>
-        <option value="Soft pink">Soft pink</option>
-      </select>
-    </label>
+    <!-- 5: Evil Eye Armband -->
+    <div class="product" data-cat="armbanden" data-prijs="3.5" data-voorraad="2">
+      <img src="images/evil-eye-armband.jpg" alt="Evil Eye Armband">
+      <h3>Evil Eye Armband</h3>
+      <p>Handgemaakt, stainless steel – unieke Evil Eye charms</p>
+      <div class="prijs">€3,50</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="evil_eye_armband_aantal"></label>
+      <label>Kleur:
+        <select name="evil_eye_armband_kleur">
+          <option value="blauw">Blauw</option>
+          <option value="groen">Groen</option>
+          <option value="geel">Geel</option>
+          <option value="rood">Rood</option>
+          <option value="zwart">Zwart</option>
+        </select>
+      </label>
+    </div>
 
-    <label>Verzendoptie:</label>
-    <input type="radio" name="verzendoptie" value="Brievenbuspost €2,62" checked> Brievenbuspost (€2,62 t/m 5 items)<br>
-    <input type="radio" name="verzendoptie" value="Track & Trace €4,25"> Track & Trace (€4,25 of ≥6 items)
+    <!-- 6: Hot pink / soft pink kralen bloemen oorbellen -->
+    <div class="product" data-cat="oorbellen" data-prijs="3.5" data-voorraad="2">
+      <img src="images/oorbellen1.jpg" alt="Bloemen Oorbellen">
+      <h3>Bloemen Oorbellen</h3>
+      <p>Handgemaakt, stainless steel – hot pink of soft pink kralen</p>
+      <div class="prijs">€3,50</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="bloemen_oorbellen_aantal"></label>
+      <label>Kleur:
+        <select name="bloemen_oorbellen_kleur">
+          <option value="hotpink">Hot Pink</option>
+          <option value="softpink">Soft Pink</option>
+        </select>
+      </label>
+    </div>
 
-    <div id="totaal">Totaal: €0,00</div>
+    <!-- 7: Kralen cirkel oorbellen -->
+    <div class="product" data-cat="oorbellen" data-prijs="5" data-voorraad="2">
+      <img src="images/oorbellen2.jpg" alt="Kralen Cirkel Oorbellen">
+      <h3>Kralen Cirkel Oorbellen</h3>
+      <p>Handgemaakt, stainless steel – unieke sets, elk anders</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="kralen_cirkel_oorbellen_aantal"></label>
+    </div>
 
-    <textarea name="opmerkingen" rows="3" placeholder="Eventuele extra info..."></textarea>
-    <input type="hidden" name="_subject" value="Nieuwe bestelling via website">
-    <button type="submit">Bestel — ik betaal via Tikkie</button>
-  </form>
+    <!-- 8: Charms ketting -->
+    <div class="product" data-cat="kettingen" data-prijs="7" data-voorraad="2">
+      <img src="images/charms_ketting.jpg" alt="Charms Ketting">
+      <h3>Charms Ketting</h3>
+      <p>Handgemaakt, stainless steel – meerdere varianten mogelijk</p>
+      <div class="prijs">€7,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="charms_ketting_aantal"></label>
+    </div>
 
-  <footer>
-    <p>Na het versturen ontvang je binnen 24 uur een Tikkie via e-mail of WhatsApp.</p>
-  </footer>
+  </div> <!-- einde product-container -->
 
-  <script>
-    const productSelect = document.getElementById('product');
-    const aantalInput = document.getElementById('aantal');
-    const totaalDiv = document.getElementById('totaal');
-    const verzendRadios = document.getElementsByName('verzendoptie');
+  <!-- Verzendopties -->
+  <div class="verzendopties">
+    <label><input type="radio" name="verzendoptie" value="brievenbus"> Brievenbuspost (€2,62 t/m 5 items)</label>
+    <label><input type="radio" name="verzendoptie" value="tracktrace"> Pakketpost (€4,25, ≥6 items verplicht)</label>
+  </div>
 
-    function updateVoorraad() {
-      for(let i=0; i<productSelect.options.length; i++){
-        const opt = productSelect.options[i];
-        const voorraad = parseInt(opt.dataset.voorraad || 0);
-        if(voorraad <=0 && opt.value !== ""){
-          opt.disabled = true;
-          opt.textContent += " (Uitverkocht)";
-          opt.classList.add('uitverkocht');
+  <div id="totaal">Totaal: €0,00</div>
+
+  <button type="submit">Bestel — ik betaal via Tikkie</button>
+</form>
+
+<script>
+  const producten = document.querySelectorAll('.product');
+  const totaalDiv = document.getElementById('totaal');
+  const verzendRadios = document.querySelectorAll('input[name="verzendoptie"]');
+
+  function updateTotaal() {
+    let totaal = 0;
+    let totaalAantal = 0;
+
+    producten.forEach(p => {
+      const prijs = parseFloat(p.dataset.prijs);
+      const aantal = parseInt(p.querySelector('input[type="number"]').value) || 0;
+      totaal += prijs * aantal;
+      totaalAantal += aantal;
+    });
+
+    // automatische verzendkosten
+    let verzend = 0;
+    if (totaalAantal > 0) {
+      if(totaalAantal >= 6) {
+        verzend = 4.25;
+        verzendRadios.forEach(r=>{if(r.value=="brievenbus") r.checked=false; r.disabled=true;});
+        verzendRadios.forEach(r=>{if(r.value=="tracktrace") r.checked=true; r.disabled=false;});
+      } else {
+        verzendRadios.forEach(r=>{r.disabled=false;});
+        if(document.querySelector('input[name="verzendoptie"]:checked')) {
+          verzend = document.querySelector('input[name="verzendoptie"]:checked').value=="brievenbus"?2.62:4.25;
         }
       }
     }
 
-    function berekenTotaal() {
-      const prijs = parseFloat(productSelect.selectedOptions[0]?.dataset.prijs || 0);
-      let aantal = parseInt(aantalInput.value) || 0;
-      const maxVoorraad = parseInt(productSelect.selectedOptions[0]?.dataset.voorraad || 0);
+    totaalDiv.textContent = `Totaal: €${(totaal + verzend).toFixed(2).replace('.',',')}`;
+  }
 
-      if(aantal > maxVoorraad){
-        alert(`Er zijn maar ${maxVoorraad} stuks beschikbaar.`);
-        aantalInput.value = maxVoorraad;
-        aantal = maxVoorraad;
-      }
+  producten.forEach(p => p.querySelector('input[type="number"]').addEventListener('input', updateTotaal));
+  verzendRadios.forEach(r => r.addEventListener('change', updateTotaal));
 
-      let verzend = 0;
-      if(aantal >=6){
-        verzendRadios[0].disabled = true;
-        verzendRadios[1].checked = true;
-        verzend = 4.25;
-      } else {
-        verzendRadios[0].disabled = false;
-        verzend = verzendRadios[0].checked ? 2.62 : 4.25;
-      }
-      if(verzendRadios[0].disabled && verzendRadios[1].checked) verzend = 4.25;
+  // reset alles bij laden
+  window.addEventListener('DOMContentLoaded', () => {
+    producten.forEach(p=>p.querySelector('input[type="number"]').value=0);
+    verzendRadios.forEach(r=>r.checked=false);
+    totaalDiv.textContent = "Totaal: €0,00";
+  });
+</script>
 
-      const totaal = (prijs * aantal) + verzend;
-      totaalDiv.textContent = `Totaal: €${totaal.toFixed(2).replace('.',',')}`;
-    }
-
-    productSelect.addEventListener('change', berekenTotaal);
-    aantalInput.addEventListener('input', berekenTotaal);
-    verzendRadios.forEach(r => r.addEventListener('change', berekenTotaal));
-    window.addEventListener('load', () => { updateVoorraad(); berekenTotaal(); });
-  </script>
 </body>
 </html>
