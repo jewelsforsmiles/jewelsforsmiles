@@ -287,6 +287,13 @@
     bloemenImg.src = `images/oorbellen-${kleur}.jpg`;
   });
 </script>
+window.addEventListener('DOMContentLoaded', () => {
+  producten.forEach(p=>p.querySelector('input[type="number"]').value=0);
+  verzendRadios.forEach(r=>r.disabled = false);
+  // Zet standaard Brievenbus aan
+  document.querySelector('input[name="verzendoptie"][value="Brievenbus €2,62"]').checked = true;
+  totaalDiv.textContent = "Totaal: €0,00";
+});
 
 </body>
 </html>
