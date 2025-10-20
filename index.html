@@ -161,19 +161,6 @@
     Track & Trace (€4,25 of ≥6 items verplicht)
   </label>
 </div>
-  
-function updateVerzendopties(totaalAantal) {
-  const brievenbus = document.querySelector('input[value^="Brievenbus"]');
-  const trackTrace = document.querySelector('input[value^="Track & Trace"]');
-
-  if(totaalAantal >= 6){
-    brievenbus.disabled = true;        // niet meer selecteerbaar
-    trackTrace.checked = true;          // automatisch Track & Trace selecteren
-  } else {
-    brievenbus.disabled = false;
-  }
-}
-
 
   <div id="totaal">Totaal: €0,00</div>
 
@@ -223,6 +210,36 @@ function updateVerzendopties(totaalAantal) {
     verzendRadios.forEach(r=>r.checked=false);
     totaalDiv.textContent = "Totaal: €0,00";
   });
+</script>
+<script>
+  const aantalInputs = document.querySelectorAll('.product input[type="number"]');
+  const brievenbus = document.querySelector('input[value^="Brievenbus"]');
+  const trackTrace = document.querySelector('input[value^="Track & Trace"]');
+
+  function updateVerzendopties() {
+    // Bereken totaal aantal items
+    let totaalAantal = 0;
+    aantalInputs.forEach(input => {
+      totaalAantal += parseInt(input.value) || 0;
+    });
+
+    // Als ≥6, disable Brievenbus en selecteer Track & Trace
+    if (totaalAantal >= 6) {
+      brievenbus.disabled = true;
+      trackTrace.checked = true;
+    } else {
+      brievenbus.disabled = false;
+      // Houd huidige selectie behouden (optioneel)
+    }
+  }
+
+  // Trigger bij wijziging aantal
+  aantalInputs.forEach(input => {
+    input.addEventListener('input', updateVerzendopties);
+  });
+
+  // Initial call om meteen juiste state te zetten
+  updateVerzendopties();
 </script>
 
 </body>
