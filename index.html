@@ -65,6 +65,8 @@
 <form id="bestelformulier" action="https://formspree.io/f/mdkwvkpd" method="POST">
   <input type="hidden" name="_next" value="bedankt.html">
   <input type="hidden" name="totaalbedrag" id="totaalbedrag" value="0">
+  <input type="hidden" name="bestelnummer" id="bestelnummer">
+
 
   <div class="categorie-buttons" style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
   <button type="button" data-cat="alles">Alles</button>
@@ -328,6 +330,18 @@ categorieKnoppen.forEach(btn => {
   });
 });
 </script>
+
+  <script>
+  // Genereer een uniek bestelnummer bij het laden
+  window.addEventListener('DOMContentLoaded', () => {
+    const bestelnummerInput = document.getElementById('bestelnummer');
+    // Format: BN-jaarmaanddag-uurminuut-seconde-random
+    const now = new Date();
+    const nummer = `BN-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}${now.getDate().toString().padStart(2,'0')}-${now.getHours().toString().padStart(2,'0')}${now.getMinutes().toString().padStart(2,'0')}${now.getSeconds().toString().padStart(2,'0')}-${Math.floor(Math.random()*1000)}`;
+    bestelnummerInput.value = nummer;
+  });
+</script>
+
 
 </body>
 </html>
