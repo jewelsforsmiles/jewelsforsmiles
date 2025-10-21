@@ -132,14 +132,15 @@
       <div class="voorraad">Voorraad: 2</div>
       <label>Aantal: <input type="number" min="0" value="0" name="evil_eye_armband_aantal"></label>
       <label>Kleur:
-    <select name="evil_eye_armband_kleur">
-      <option value="blauw" data-voorraad="5" data-image="images/evil-eye-armband-blauw.jpg">Blauw</option>
-      <option value="groen" data-voorraad="1" data-image="images/evil-eye-armband-groen.jpg">Groen</option>
-      <option value="rood" data-voorraad="5" data-image="images/evil-eye-armband-rood.jpg">Rood</option>
-      <option value="zwart" data-voorraad="5" data-image="images/evil-eye-armband-zwart.jpg">Zwart</option>
-    </select>
-  </label>
-</div>
+    <select id="evil-eye-select" name="evil_eye_armband_kleur">
+          <option value="blauw">Blauw</option>
+          <option value="groen">Groen</option>
+          <option value="geel">Geel</option>
+          <option value="rood">Rood</option>
+          <option value="zwart">Zwart</option>
+        </select>
+      </label>
+    </div>
       
 
     <div class="product" data-cat="oorbellen" data-prijs="3.5" data-voorraad="2">
@@ -373,46 +374,28 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", function() {
   const producten = document.querySelectorAll('.product');
 
   producten.forEach(p => {
+    const voorraad = parseInt(p.dataset.voorraad);
     const voorraadDiv = p.querySelector('.voorraad');
     const aantalInput = p.querySelector('input[type="number"]');
-    const kleurSelect = p.querySelector('select');
-    const productImage = p.querySelector('.product-image');
 
-    function updateKleur() {
-      const selected = kleurSelect.options[kleurSelect.selectedIndex];
-      const voorraad = parseInt(selected.dataset.voorraad);
-      const imgSrc = selected.dataset.image;
-
-      // Foto updaten
-      if (imgSrc) productImage.src = imgSrc;
-
-      // Voorraad tonen
-      if (voorraad > 0) {
-        voorraadDiv.textContent = "Voorraad: " + voorraad;
-        voorraadDiv.style.color = "";
-        aantalInput.disabled = false;
-        aantalInput.max = voorraad;
-      } else {
-        voorraadDiv.textContent = "Uitverkocht";
-        voorraadDiv.style.color = "red";
-        aantalInput.disabled = true;
-        aantalInput.value = 0;
-      }
+    // Toon voorraad
+    if (voorraad > 0) {
+      voorraadDiv.textContent = "Voorraad: " + voorraad;
+      aantalInput.max = voorraad;
+    } else {
+      voorraadDiv.textContent = "Uitverkocht";
+      voorraadDiv.style.color = "red";
+      aantalInput.disabled = true;
     }
-
-    // Initieel uitvoeren
-    updateKleur();
-
-    // Update bij kleurwissel
-    kleurSelect.addEventListener("change", updateKleur);
   });
 });
 </script>
+
 
 
 </body>
