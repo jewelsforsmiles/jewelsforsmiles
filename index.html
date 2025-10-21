@@ -80,58 +80,67 @@
   <div class="product-container">
     <!-- Producten zoals eerder -->
     <div class="product" data-cat="armbanden" data-prijs="4" data-voorraad="3">
-      <img src="images/sterren-armband.jpg" alt="Sterren Armband">
+      <img src="images/sterren-armband1.jpg" alt="Sterren Armband">
       <h3>Sterren armband</h3>
       <p>Handgemaakt, stainless steel – touw armband</p>
       <div class="prijs">€4,00</div>
-      <div class="voorraad">Voorraad: 2</div>
+      <div class="voorraad">Voorraad: 3</div>
       <label>Aantal: <input type="number" min="0" max="3" value="0" name="sterren_ketting_aantal"></label>
     </div>
 
-    <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="2">
-      <img src="images/parel-charms-ketting.jpg" alt="Parel Ketting">
+    <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="1">
+      <img src="images/parel-charms-ketting1.jpg" alt="Parel Ketting">
       <h3>Parel Ketting</h3>
       <p>Handgemaakt, stainless steel – blauwe ceramic & rvs charms</p>
       <div class="prijs">€5,00</div>
-      <div class="voorraad">Voorraad: 2</div>
-      <label>Aantal: <input type="number" min="0" max="2" value="0" name="parel_ketting_aantal"></label>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="parel_ketting_aantal"></label>
     </div>
 
     <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
-      <img src="images/armband-set-blauw.jpg" alt="Blauwe Armbanden Set">
+      <img src="images/armband-set-blauw1.jpg" alt="Blauwe Armbanden Set">
       <h3>Blauwe Armbanden Set</h3>
-      <p>Handgemaakt, stainless steel – set van blauwe armbanden</p>
+      <p>Handgemaakt, stainless steel – set van 5 blauwe armbanden</p>
       <div class="prijs">€7,00</div>
       <div class="voorraad">Voorraad: 2</div>
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="blauwe_armband_aantal"></label>
     </div>
 
     <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="2">
-      <img src="images/armband-set-rozegroen.jpg" alt="Roze/Groene Armbanden Set">
+      <img src="images/armband-set-rozegroen1.jpg" alt="Roze/Groene Armbanden Set">
       <h3>Roze/Groene Armbanden Set</h3>
-      <p>Handgemaakt, stainless steel – set in roze en groen</p>
+      <p>Handgemaakt, stainless steel – set van 5 armbanden in roze en groen</p>
       <div class="prijs">€7,00</div>
       <div class="voorraad">Voorraad: 2</div>
       <label>Aantal: <input type="number" min="0" max="2" value="0" name="roze_groene_armband_aantal"></label>
     </div>
 
-    <div class="product" data-cat="armbanden" data-prijs="3.5" data-voorraad="2">
+     <div class="product" data-cat="armbanden" data-prijs="7" data-voorraad="1">
+      <img src="images/armband-set-rozeparel.jpg" alt="Roze Parel Armbanden Set">
+      <h3>Roze Parel Armbanden Set</h3>
+      <p>Handgemaakt, stainless steel – set van 5 armbanden in roze met parels</p>
+      <div class="prijs">€7,00</div>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="roze_parel_armband_aantal"></label>
+    </div>
+
+    <div class="product" data-cat="armbanden" data-prijs="3.5">
       <img id="evil-eye-main" src="images/evil-eye-blauw.jpg" alt="Evil Eye Armband" width="200">
       <h3>Evil Eye Armband</h3>
-      <p>Handgemaakt, stainless steel – unieke Evil Eye charms</p>
+      <p>Handgemaakt, stainless steel</p>
       <div class="prijs">€3,50</div>
       <div class="voorraad">Voorraad: 2</div>
-      <label>Aantal: <input type="number" min="0" max="2" value="0" name="evil_eye_armband_aantal"></label>
+      <label>Aantal: <input type="number" min="0" value="0" name="evil_eye_armband_aantal"></label>
       <label>Kleur:
-        <select id="evil-eye-select" name="evil_eye_armband_kleur">
-          <option value="blauw">Blauw</option>
-          <option value="groen">Groen</option>
-          <option value="geel">Geel</option>
-          <option value="rood">Rood</option>
-          <option value="zwart">Zwart</option>
-        </select>
-      </label>
-    </div>
+    <select name="evil_eye_armband_kleur">
+      <option value="blauw" data-voorraad="5" data-image="images/evil-eye-armband-blauw.jpg">Blauw</option>
+      <option value="groen" data-voorraad="1" data-image="images/evil-eye-armband-groen.jpg">Groen</option>
+      <option value="rood" data-voorraad="5" data-image="images/evil-eye-armband-rood.jpg">Rood</option>
+      <option value="zwart" data-voorraad="5" data-image="images/evil-eye-armband-zwart.jpg">Zwart</option>
+    </select>
+  </label>
+</div>
+      
 
     <div class="product" data-cat="oorbellen" data-prijs="3.5" data-voorraad="2">
       <img id="bloemen-main" src="images/oorbellen-hotpink.jpg" alt="Bloemen Oorbellen" width="200">
@@ -148,22 +157,22 @@
       </label>
     </div>
 
-    <div class="product" data-cat="oorbellen" data-prijs="5" data-voorraad="2">
-      <img src="images/kralen-cirkel-oorbellen.jpg" alt="Kralen Cirkel Oorbellen">
+    <div class="product" data-cat="oorbellen" data-prijs="5" data-voorraad="3">
+      <img src="images/kralen-cirkel-oorbellen1.jpg" alt="Kralen Cirkel Oorbellen">
       <h3>Kralen Cirkel Oorbellen</h3>
-      <p>Handgemaakt, stainless steel – unieke sets, elk anders</p>
+      <p>Handgemaakt, stainless steel – elk paar wordt handgemaakt, elke set is uniek</p>
       <div class="prijs">€5,00</div>
-      <div class="voorraad">Voorraad: 2</div>
-      <label>Aantal: <input type="number" min="0" max="2" value="0" name="kralen_cirkel_oorbellen_aantal"></label>
+      <div class="voorraad">Voorraad: 3</div>
+      <label>Aantal: <input type="number" min="0" max="3" value="0" name="kralen_cirkel_oorbellen_aantal"></label>
     </div>
 
-    <div class="product" data-cat="kettingen" data-prijs="7" data-voorraad="2">
-      <img src="images/charms-ketting.jpg" alt="Charms Ketting">
+    <div class="product" data-cat="kettingen" data-prijs="7" data-voorraad="1">
+      <img src="images/charms-ketting1.jpg" alt="Charms Ketting">
       <h3>Charms Ketting</h3>
-      <p>Handgemaakt, stainless steel – meerdere varianten mogelijk</p>
+      <p>Handgemaakt, stainless steel</p>
       <div class="prijs">€7,00</div>
-      <div class="voorraad">Voorraad: 2</div>
-      <label>Aantal: <input type="number" min="0" max="2" value="0" name="charms_ketting_aantal"></label>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="charms_ketting_aantal"></label>
     </div>
 
   </div>
@@ -360,6 +369,47 @@ document.addEventListener("DOMContentLoaded", function() {
       voorraadDiv.style.color = "red";
       aantalInput.disabled = true;
     }
+  });
+});
+</script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const producten = document.querySelectorAll('.product');
+
+  producten.forEach(p => {
+    const voorraadDiv = p.querySelector('.voorraad');
+    const aantalInput = p.querySelector('input[type="number"]');
+    const kleurSelect = p.querySelector('select');
+    const productImage = p.querySelector('.product-image');
+
+    function updateKleur() {
+      const selected = kleurSelect.options[kleurSelect.selectedIndex];
+      const voorraad = parseInt(selected.dataset.voorraad);
+      const imgSrc = selected.dataset.image;
+
+      // Foto updaten
+      if (imgSrc) productImage.src = imgSrc;
+
+      // Voorraad tonen
+      if (voorraad > 0) {
+        voorraadDiv.textContent = "Voorraad: " + voorraad;
+        voorraadDiv.style.color = "";
+        aantalInput.disabled = false;
+        aantalInput.max = voorraad;
+      } else {
+        voorraadDiv.textContent = "Uitverkocht";
+        voorraadDiv.style.color = "red";
+        aantalInput.disabled = true;
+        aantalInput.value = 0;
+      }
+    }
+
+    // Initieel uitvoeren
+    updateKleur();
+
+    // Update bij kleurwissel
+    kleurSelect.addEventListener("change", updateKleur);
   });
 });
 </script>
