@@ -176,6 +176,95 @@
       <label>Aantal: <input type="number" min="0" max="1" value="0" name="charms_ketting_aantal"></label>
     </div>
 
+ <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="1">
+      <img src="images/schuifknoop-ketting.jpg" alt="Schuifknoop Ketting">
+      <h3>Schuifknoop Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="schuifknoop_ketting_aantal"></label>
+    </div>
+
+ <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="2">
+      <img src="images/heart-ketting.jpg" alt="Hartjes Ketting">
+      <h3>Hartjes Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="heart_ketting_aantal"></label>
+    </div>
+
+  <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="3">
+      <img src="images/heart-ketting-groot.jpg" alt="Groot hartjes Ketting">
+      <h3>Groot Hartjes Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 3</div>
+      <label>Aantal: <input type="number" min="0" max="3" value="0" name="heart_ketting_groot_aantal"></label>
+    </div>
+
+    <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="1">
+      <img src="images/vis-ketting.jpg" alt="Vis Ketting">
+      <h3>Vis Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="vis_ketting_aantal"></label>
+    </div>
+
+<div class="product" data-cat="armbanden" data-prijs="3.5" data-voorraad="2">
+  <img id="glanzende-main" src="images/glanzende-armband-roze.jpg" alt="Glanzende Armband" class="product-image">
+  <h3>Glanzende Armband</h3>
+  <p>Handgemaakt, stainless steel</p>
+  <div class="prijs">€3,50</div>
+  <div class="voorraad">Voorraad: 2</div>
+  <label>Aantal:
+    <input type="number" min="0" max="1" value="0" name="glanzende_armband_aantal">
+  </label>
+  <label>Kleur:
+    <select id="glanzende-select" name="glanzende_armband_kleur">
+      <option value="roze" data-image="images/glanzende-armband-roze.jpg">Roze</option>
+      <option value="paars" data-image="images/glanzende-armband-paars.jpg">Paars</option>
+    </select>
+  </label>
+</div>
+
+   <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="2">
+      <img src="images/evileye-ketting.jpg" alt="Evil Eye Ketting">
+      <h3>Evil Eye Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 2</div>
+      <label>Aantal: <input type="number" min="0" max="2" value="0" name="evileye_ketting_aantal"></label>
+    </div>
+
+    <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="1">
+      <img src="images/starfish-parel-ketting.jpg" alt="Starfish Parel Ketting">
+      <h3>Starfish Parel Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€5,00</div>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="starfish_parel_ketting_aantal"></label>
+    </div>
+
+    <div class="product" data-cat="kettingen" data-prijs="6" data-voorraad="1">
+      <img src="images/zee-charms-ketting-groen.jpg" alt="Groene Zee Charms Ketting">
+      <h3>Groene Zee Charms Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€6,00</div>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="groene_zee_charms_ketting_aantal"></label>
+    </div>
+
+    <div class="product" data-cat="kettingen" data-prijs="6" data-voorraad="1">
+      <img src="images/zee-charms-ketting-rozegeel.jpg" alt="Roze/Geel Zee Charms Ketting">
+      <h3>Roze/Geel Zee Charms Ketting</h3>
+      <p>Handgemaakt, stainless steel</p>
+      <div class="prijs">€6,00</div>
+      <div class="voorraad">Voorraad: 1</div>
+      <label>Aantal: <input type="number" min="0" max="1" value="0" name="roze/geel_zee_charms_ketting_aantal"></label>
+    </div>
+    
   </div>
 
   <div class="verzendopties">
@@ -304,6 +393,21 @@
     bloemenImg.src = `images/oorbellen-${kleur}.jpg`;
   });
 </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const glanzendeSelect = document.getElementById('glanzende-select');
+  const glanzendeImg = document.getElementById('glanzende-main');
+
+  // Verander afbeelding bij kleurselectie
+  glanzendeSelect.addEventListener('change', () => {
+    const selectedOption = glanzendeSelect.options[glanzendeSelect.selectedIndex];
+    const newImage = selectedOption.dataset.image;
+    if (newImage) glanzendeImg.src = newImage;
+  });
+});
+</script>
+
 
 <script>
   function checkProductAantal() {
