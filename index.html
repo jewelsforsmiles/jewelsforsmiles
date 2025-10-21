@@ -278,6 +278,15 @@
     </label>
   </div>
 
+<!-- Kortingscode -->
+<div class="kortingscode" style="text-align:center; margin-top:15px;">
+  <label for="kortingscode-input"><strong>Kortingscode:</strong></label><br>
+  <input type="text" id="kortingscode-input" name="kortingscode" placeholder="Voer je code in" style="padding:5px; border-radius:5px; border:1px solid #ccc; width:60%; margin-top:5px;">
+  <button type="button" id="kortingscode-btn" style="margin-left:5px; background:#ff5757; color:white; border:none; padding:6px 10px; border-radius:5px; cursor:pointer;">Toepassen</button>
+  <div id="kortingscode-feedback" style="font-size:14px; margin-top:5px;"></div>
+</div>
+
+  
   <div id="totaal">Totaal: €0,00</div>
 
   <div class="klantgegevens">
@@ -500,6 +509,73 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const kortingsInput = document.getElementById('kortingscode-input');
+  const kortingsBtn = document.getElementById('kortingscode-btn');
+  const kortingsFeedback = document.getElementById('kortingscode-feedback');
+  const totaalDiv = document.getElementById('totaal');
+  const producten = document.querySelectorAll('.product');
+  const verzendRadios = document.querySelectorAll('input[name="verzendoptie"]');
+
+  let korting = 0; 
+  let kortingType = null; 
+
+  function berekenTotaal() {
+    let totaal = 0;
+    let totaalAantal = 0;
+
+    producten.forEach(p => {
+      const prijs = parseFloat(p.dataset.prijs);
+      const aantal = parseInt(p.querySelector('input[type="number"]').value) || 0;
+      totaal += prijs * aantal;
+      totaalAantal += aantal;
+    });
+
+    // verzendkosten
+    let verzend = 0;
+    if (totaalAantal > 0) {
+      const geselecteerd = document.querySelector('input[name="verzendoptie"]:checked');
+      if (geselecteerd && geselecteerd.value.includes("Track")) verzend = 4.25;
+      else verzend = 2.62;
+    }
+
+    // korting toepassen
+    let totaalNaKorting = totaal;
+    if (kortingType === 'percentage') totaalNaKorting -= totaal * (korting / 100);
+    if (kortingType === 'bedrag') totaalNaKorting -= korting;
+    if (totaalNaKorting < 0) totaalNaKorting = 0;
+
+    totaalDiv.textContent = `Totaal: €${(totaalNaKorting + verzend).toFixed(2).replace('.', ',')}`;
+  }
+
+  // update bij wijzigingen
+  producten.forEach(p => p.querySelector('input[type="number"]').addEventListener('input', berekenTotaal));
+  verzendRadios.forEach(r => r.addEventListener('change', berekenTotaal));
+
+  // klik op kortingscode-knop
+  kortingsBtn.addEventListener('click', () => {
+    const code = kortingsInput.value.trim().toLowerCase();
+
+    // kortingscodes
+    if (code === 'smile10') {
+      korting = 10;
+      kortingType = 'percentage';
+      kortingsFeedback.textContent = "✅ 10% korting toegepast!";
+      kortingsFeedback.style.color = "green";
+    } else {
+      korting = 0;
+      kortingType = null;
+      kortingsFeedback.textContent = "❌ Ongeldige kortingscode";
+      kortingsFeedback.style.color = "red";
+    }
+
+    berekenTotaal();
+  });
+
+  berekenTotaal(); // initiale berekening
+});
+</script>
 
 
 </body>
