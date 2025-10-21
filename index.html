@@ -79,13 +79,13 @@
   
   <div class="product-container">
     <!-- Producten zoals eerder -->
-    <div class="product" data-cat="kettingen" data-prijs="4" data-voorraad="2">
+    <div class="product" data-cat="armbanden" data-prijs="4" data-voorraad="3">
       <img src="images/sterren-armband.jpg" alt="Sterren Armband">
       <h3>Sterren armband</h3>
       <p>Handgemaakt, stainless steel – touw armband</p>
       <div class="prijs">€4,00</div>
       <div class="voorraad">Voorraad: 2</div>
-      <label>Aantal: <input type="number" min="0" max="2" value="0" name="sterren_ketting_aantal"></label>
+      <label>Aantal: <input type="number" min="0" max="3" value="0" name="sterren_ketting_aantal"></label>
     </div>
 
     <div class="product" data-cat="kettingen" data-prijs="5" data-voorraad="2">
@@ -340,6 +340,28 @@ categorieKnoppen.forEach(btn => {
     const nummer = `BN-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2,'0')}${now.getDate().toString().padStart(2,'0')}-${now.getHours().toString().padStart(2,'0')}${now.getMinutes().toString().padStart(2,'0')}${now.getSeconds().toString().padStart(2,'0')}-${Math.floor(Math.random()*1000)}`;
     bestelnummerInput.value = nummer;
   });
+</script>
+  
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const producten = document.querySelectorAll('.product');
+
+  producten.forEach(p => {
+    const voorraad = parseInt(p.dataset.voorraad);
+    const voorraadDiv = p.querySelector('.voorraad');
+    const aantalInput = p.querySelector('input[type="number"]');
+
+    // Toon voorraad
+    if (voorraad > 0) {
+      voorraadDiv.textContent = "Voorraad: " + voorraad;
+      aantalInput.max = voorraad;
+    } else {
+      voorraadDiv.textContent = "Uitverkocht";
+      voorraadDiv.style.color = "red";
+      aantalInput.disabled = true;
+    }
+  });
+});
 </script>
 
 
