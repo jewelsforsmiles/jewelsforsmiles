@@ -62,7 +62,7 @@
   Zodra je besteld hebt, ontvang je een Tikkie op je opgegeven e-mailadres. Na betaling wordt je bestelling verzonden en ontvang je later Track & Trace.
 </p>
 
-<form action="https://formspree.io/f/mdkwvkpd" method="POST">
+<form id="bestelformulier" action="https://formspree.io/f/mdkwvkpd" method="POST">
   <input type="hidden" name="_next" value="https://jewelsforsmiles.github.io/jewelsforsmiles/bedankt.html">
   <input type="hidden" name="totaalbedrag" id="totaalbedrag" value="0">
   <input type="hidden" name="bestelnummer" id="bestelnummer">
@@ -381,7 +381,7 @@
 </script>
 
 <script>
-  document.querySelector("form").addEventListener("submit", function(e){
+  document.getElementById("bestelformulier").addEventListener("submit", function(e){
     const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
     const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
     if(totaal === 0){
