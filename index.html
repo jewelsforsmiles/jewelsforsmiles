@@ -57,12 +57,12 @@
   </div>
 </header>
 
-<h1>Jewels for Smiles</h1>
+<h1>Jewels For Smiles</h1>
 <p style="text-align:center; font-size:14px; color:#555; margin-top:-10px;">
   Zodra je besteld hebt, ontvang je een Tikkie op je opgegeven e-mailadres. Na betaling wordt je bestelling verzonden en ontvang je later Track & Trace.
 </p>
 
-<form id="bestelformulier" action="https://formspree.io/f/mdkwvkpd" method="POST">
+<form action="https://formspree.io/f/mdkwvkpd" method="POST">
   <input type="hidden" name="_next" value="https://jewelsforsmiles.github.io/jewelsforsmiles/bedankt.html">
   <input type="hidden" name="totaalbedrag" id="totaalbedrag" value="0">
   <input type="hidden" name="bestelnummer" id="bestelnummer">
@@ -381,7 +381,7 @@
 </script>
 
 <script>
-  document.getElementById("bestelformulier").addEventListener("submit", function(e){
+  document.querySelector("form").addEventListener("submit", function(e){
     const aantallen = Array.from(document.querySelectorAll('.product input[type="number"]'));
     const totaal = aantallen.reduce((sum, input) => sum + parseInt(input.value || 0), 0);
     if(totaal === 0){
