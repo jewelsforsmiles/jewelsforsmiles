@@ -63,7 +63,7 @@
 </p>
 
 <form id="bestelformulier" action="https://formspree.io/f/mdkwvkpd" method="POST">
-  <input type="hidden" name="_next" value="bedankt.html">
+  <input type="hidden" name="_next" value="https://jewelsforsmiles.github.io/jewelsforsmiles/bedankt.html">
   <input type="hidden" name="totaalbedrag" id="totaalbedrag" value="0">
   <input type="hidden" name="bestelnummer" id="bestelnummer">
 
@@ -78,7 +78,6 @@
 
   
   <div class="product-container">
-    <!-- Producten zoals eerder -->
     <div class="product" data-cat="armbanden" data-prijs="4" data-voorraad="3">
       <img src="images/sterren-armband1.jpg" alt="Sterren Armband">
       <h3>Sterren armband</h3>
@@ -161,7 +160,7 @@
     <div class="product" data-cat="oorbellen" data-prijs="5" data-voorraad="3">
       <img src="images/kralen-cirkel-oorbellen1.jpg" alt="Kralen Cirkel Oorbellen">
       <h3>Kralen Cirkel Oorbellen</h3>
-      <p>Handgemaakt, stainless steel – elk paar wordt handgemaakt, elke set is uniek</p>
+      <p>Handgemaakt, stainless steel – elk paar wordt handgemaakt, elke set is uniek. Voorkeur voor kleuren? Zet het in de opmerkingen!</p>
       <div class="prijs">€5,00</div>
       <div class="voorraad">Voorraad: 3</div>
       <label>Aantal: <input type="number" min="0" max="3" value="0" name="kralen_cirkel_oorbellen_aantal"></label>
@@ -306,6 +305,13 @@
       <input type="text" name="stad" required placeholder="Plaats">
     </label>
   </div>
+
+  <!-- Opmerkingen -->
+<div class="opmerkingen" style="margin-top:15px;">
+  <label for="opmerkingen"><strong>Opmerkingen of speciale wensen:</strong></label><br>
+  <textarea id="opmerkingen" name="opmerkingen" rows="4" placeholder="Bijv. opmerking bij verzending..." style="width:100%; padding:8px; border-radius:5px; border:1px solid #ccc;"></textarea>
+</div>
+
   <button type="submit">Bestel — ik betaal via Tikkie</button>
 </form>
 
