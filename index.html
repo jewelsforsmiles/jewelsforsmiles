@@ -563,22 +563,11 @@ document.addEventListener("DOMContentLoaded", function() {
   kortingsBtn.addEventListener('click', () => {
     const code = kortingsInput.value.trim().toLowerCase();
 
-    // datum check
-    const vandaag = new Date(2025-10-27);
-    const vervaldatum = new Date("2025-11-06"); // t/m 6 november 2025
-
-    if (code === 'SMILE10') {
-      if (vandaag <= vervaldatum) {
-        korting = 10;
-        kortingType = 'percentage';
-        kortingsFeedback.textContent = "✅ 10% korting toegepast!";
-        kortingsFeedback.style.color = "green";
-      } else {
-        korting = 0;
-        kortingType = null;
-        kortingsFeedback.textContent = "❌ Deze kortingscode is verlopen";
-        kortingsFeedback.style.color = "red";
-      }
+    if (code === 'smile10') {
+      korting = 10;
+      kortingType = 'percentage';
+      kortingsFeedback.textContent = "✅ 10% korting toegepast!";
+      kortingsFeedback.style.color = "green";
     } else {
       korting = 0;
       kortingType = null;
@@ -592,6 +581,7 @@ document.addEventListener("DOMContentLoaded", function() {
   berekenTotaal(); // initiale berekening
 });
 </script>
+
 
 
 
